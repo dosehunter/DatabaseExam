@@ -6,6 +6,9 @@ CREATE TEMPORARY TABLE IF NOT EXISTS
         
 SELECT * FROM table2;
 
-INSERT INTO time_table (
-	teacher_id, `subject_id`, class_number, room_number, teach_date, scheduled_time) 	
-    VALUES (12, 44, 57, 157, "1970-05-21 04:13:42", 60);
+SHOW INDEXES FROM student;
+
+EXPLAIN SELECT * FROM employee 
+	WHERE full_name LIKE "%a";
+
+CREATE INDEX idx_emp_name ON employee(full_name);

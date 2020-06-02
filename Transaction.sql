@@ -45,4 +45,4 @@ DELIMITER ;
 CALL add_employee('Rickey Hermann','1972-05-24','4161','F','22920');
 
 SELECT * FROM employee;
-#DELETE FROM employee WHERE id=57;
+DELETE FROM employee WHERE id=69;

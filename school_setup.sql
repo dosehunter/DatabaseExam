@@ -144,6 +144,14 @@ CREATE TABLE can_teach(
 	PRIMARY KEY (teacher_id, `subject_id`));
 
 ##################################################    
+-- CREATING EXTRA INDEXES
+##################################################
+
+-- As we're using these to join tables we have chosen to create indexes for them
+CREATE INDEX idx_emp_name ON employee(full_name);
+CREATE INDEX idx_dep_name ON dependent(full_name);
+
+##################################################    
 -- REQUIREMENTS (TRIGGERS/EVENTS) 
 ##################################################
 # NOTE TRIGGERS SHOULD BE RUN AFTER POPULATING THE DATABASE!
