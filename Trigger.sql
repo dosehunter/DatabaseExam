@@ -8,13 +8,14 @@ BEFORE INSERT
    FOR EACH ROW
    BEGIN
 	DECLARE msg VARCHAR(128);
-    SET @ro_num = new.room_number;
+    DECLARE room_num INT;
+    SET room_num = new.room_number;
     SET @cls_id = new.class_number;
     
     # Get room size
     SET @room_size = (
 		SELECT size FROM room
-		WHERE @ro_num = room_number);
+		WHERE room_num = room_number);
         
 	# Get class size with teacher
 	SET @class_size = (
