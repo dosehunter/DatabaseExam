@@ -30,3 +30,9 @@ CREATE EVENT yearly_grades ON
 		AS cl 
 		WHERE cl.id = stu.class_number);
 	
+############################################
+-- EXAMPLE
+############################################
+
+
+

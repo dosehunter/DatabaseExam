@@ -42,6 +42,11 @@ END//
 
 DELIMITER ;
 
+
+############################################
+-- EXAMPLE
+############################################
+
 CALL add_employee('Rickey Hermann','1972-05-24','4161','F','22920');
 
 SELECT * FROM employee;

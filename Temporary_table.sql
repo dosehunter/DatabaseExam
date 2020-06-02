@@ -12,3 +12,8 @@ EXPLAIN SELECT * FROM employee
 	WHERE full_name LIKE "%a";
 
 CREATE INDEX idx_emp_name ON employee(full_name);
+
+############################################
+-- EXAMPLE
+############################################
+
