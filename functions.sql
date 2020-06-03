@@ -1,3 +1,9 @@
+USE school;
+
+##################################################
+########### Function to get full CPR #############
+##################################################
+
 DROP FUNCTION IF EXISTS GET_FULL_CPR;
 
 DELIMITER //

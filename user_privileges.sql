@@ -1,11 +1,19 @@
 USE school;
 
+##################################################
+##################### SETUP ######################    
+##################################################
+
 DROP ROLE IF EXISTS teacher, secretary, student, principal;
 
 DROP USER IF EXISTS teacher1, teacher2, teacher3;
 DROP USER IF EXISTS student1, student2, student3;
 DROP USER IF EXISTS secretary1, secretary2, secretary3;
 DROP USER IF EXISTS principal1;
+
+##################################################
+################# CREATE ROLES ###################    
+##################################################
 
 CREATE ROLE teacher;
 GRANT SELECT ON school.student TO teacher;
@@ -38,10 +46,18 @@ GRANT INSERT, UPDATE, DELETE ON school.time_table TO principal;
 GRANT INSERT, UPDATE, DELETE ON school.subject TO principal;
 GRANT INSERT, UPDATE, DELETE ON school.student TO principal;
 
+##################################################
+################## CREATE USERS ##################    
+##################################################
+
 CREATE USER teacher1, teacher2, teacher3;
 CREATE USER student1, student2, student3;
 CREATE USER secretary1, secretary2, secretary3;
 CREATE USER principal1;
+
+##################################################
+############ GRANT ROLES TO USERS ################    
+##################################################
 
 GRANT teacher TO teacher1, teacher2, teacher3;
 GRANT student TO student1, student2, student3;
@@ -86,7 +102,10 @@ SHOW GRANTS FOR 'student3'@'%';
 SHOW GRANTS FOR 'teacher1'@'%';
 SHOW GRANTS FOR 'teacher2'@'%';
 SHOW GRANTS FOR 'teacher3'@'%';
-## Show grants for different roles:
+
+##################################################
+############ SHOW GRANTS FOR ROLES ###############
+##################################################
 
 SHOW GRANTS FOR secretary;
 SHOW GRANTS FOR student;

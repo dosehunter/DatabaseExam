@@ -1,10 +1,12 @@
 USE school;
 
-##########################################
+##################################################
 -- Once a year the school Needs to print all student grades for that year, 
 -- it should show the student id, student name, grade, subject, exam date 
 -- and the teacher teaching the subject.
-##########################################
+##################################################
+########### PROCEDURE FOR OPERATION ##############
+##################################################
 
 DROP PROCEDURE IF EXISTS get_grades_for_year;
 
@@ -31,6 +33,10 @@ BEGIN
 	eg.exam_date BETWEEN school_year - INTERVAL 1 YEAR AND school_year;
 END//
 DELIMITER ;
+
+##################################################
+############### Scheduled Event ##################
+##################################################
 
 DROP EVENT IF EXISTS yearly_grades;
 

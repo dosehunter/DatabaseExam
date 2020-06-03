@@ -1,8 +1,10 @@
 USE school;
+
 #########################################################################################
 #########################################################################################
 -- 1. Retrieve teachers who teach more than 3 subjects and number of distinct subjects taught.
 #########################################################################################
+
 SELECT e.*, COUNT(*) AS `Number of subjects` 
 	FROM employee AS e
     INNER JOIN can_teach AS ct
@@ -28,6 +30,7 @@ WHERE e.id IN (
 #########################################################################################
 -- 3. Retrieve the CPR number of all male teachers who are assigned as head teachers for a class.
 #########################################################################################
+
 SELECT GET_FULL_CPR(e.dob, e.cpr) 
 	AS "CPR of all male teachers assigned head of a class" 
 	FROM employee AS e

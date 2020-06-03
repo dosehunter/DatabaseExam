@@ -1,4 +1,9 @@
+USE school;
+
+##################################################################################
 # Employees who have children at the school will get a bonus of 2% salary increase
+##################################################################################
+
 DROP PROCEDURE IF EXISTS add_employee;
 
 DELIMITER //
@@ -21,7 +26,7 @@ BEGIN
 					WHERE e.id = @employee), 'yes', 'no');
 		
 		UPDATE employee 
-		SET salary = CASE
+			SET salary = CASE
 				WHEN @has_child = "yes"
 					THEN salary*1.02
 					ELSE salary
