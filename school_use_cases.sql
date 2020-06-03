@@ -28,7 +28,7 @@ WHERE e.id IN (
 #########################################################################################
 -- Retrieve the CPR number of all male teachers who are assigned as head teachers for a class.
 #########################################################################################
-SELECT CONCAT(CAST(e.dob AS CHAR), "-", CAST(e.cpr AS CHAR)) 
+SELECT GET_FULL_CPR(e.dob, e.cpr) 
 	AS "CPR of all male teachers assigned head of a class" 
 	FROM employee AS e
 	WHERE e.id IN (

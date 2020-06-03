@@ -62,8 +62,8 @@ CREATE TABLE student(
     PRIMARY KEY (id));
     
 CREATE TABLE stud_dep(
-	student_id INT,
-    dependent_id INT,
+	student_id INT NOT NULL,
+    dependent_id INT NOT NULL,
     FOREIGN KEY (student_id) 
 		REFERENCES student(id) 
 			ON UPDATE CASCADE 
@@ -72,6 +72,7 @@ CREATE TABLE stud_dep(
 		REFERENCES dependent(dep_id) 
 			ON UPDATE CASCADE 
 			ON DELETE CASCADE,
+	UNIQUE KEY `unique_comb`(student_id, dependent_id),
 	PRIMARY KEY (student_id, dependent_id));
     
 CREATE TABLE `subject`(
@@ -131,8 +132,8 @@ CREATE TABLE time_table(
 	PRIMARY KEY (id));
 
 CREATE TABLE can_teach(
-	teacher_id INT,
-    `subject_id` INT,
+	teacher_id INT NOT NULL,
+    `subject_id` INT NOT NULL,
     FOREIGN KEY (teacher_id)
 		REFERENCES employee(id)
 			ON UPDATE CASCADE
@@ -141,6 +142,7 @@ CREATE TABLE can_teach(
 		REFERENCES `subject`(id)
 			ON UPDATE CASCADE
             ON DELETE CASCADE,
+	UNIQUE KEY `unique_comb_teach`(teacher_id, subject_id),
 	PRIMARY KEY (teacher_id, `subject_id`));
 
 ##################################################    
