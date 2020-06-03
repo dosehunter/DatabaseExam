@@ -1,7 +1,6 @@
 DROP FUNCTION IF EXISTS GET_FULL_CPR;
 
 DELIMITER //
-
 CREATE FUNCTION GET_FULL_CPR(dob DATE, cpr INT)
     RETURNS CHAR(17)
     DETERMINISTIC
@@ -12,11 +11,10 @@ CREATE FUNCTION GET_FULL_CPR(dob DATE, cpr INT)
                 '-', cpr); 
         RETURN full_cpr;
     END //
-
 DELIMITER ;
 
 ############################################
 -- EXAMPLE
 ############################################
 
-SELECT GET_FULL_CPR('1993-04-18', 7213)as myname;
+SELECT GET_FULL_CPR('1993-04-18', 7213)as `Full cpr`;

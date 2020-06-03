@@ -1,7 +1,7 @@
 USE school;
 #########################################################################################
 #########################################################################################
--- Retrieve teachers who teach more than 3 subjects and number of distinct subjects taught.
+-- 1. Retrieve teachers who teach more than 3 subjects and number of distinct subjects taught.
 #########################################################################################
 SELECT e.*, COUNT(*) AS `Number of subjects` 
 	FROM employee AS e
@@ -13,7 +13,7 @@ SELECT e.*, COUNT(*) AS `Number of subjects`
     
 #########################################################################################    
 #########################################################################################
--- Retrieve the id of all teachers who are not assigned to the subject: ‘History’
+-- 2. Retrieve the id of all teachers who are not assigned to the subject: ‘History’
 #########################################################################################
 
 SELECT e.full_name AS `name`, e.id FROM employee AS e
@@ -26,7 +26,7 @@ WHERE e.id IN (
 
 #########################################################################################
 #########################################################################################
--- Retrieve the CPR number of all male teachers who are assigned as head teachers for a class.
+-- 3. Retrieve the CPR number of all male teachers who are assigned as head teachers for a class.
 #########################################################################################
 SELECT GET_FULL_CPR(e.dob, e.cpr) 
 	AS "CPR of all male teachers assigned head of a class" 
