@@ -36,8 +36,25 @@ SELECT GET_FULL_CPR(e.dob, e.cpr)
 		FROM class)
 	AND e.gender = "M";
 
+#########################################################################################
+#########################################################################################
+-- 4. Retrieve the names of all the students who did not pass their exam.
+#########################################################################################
 
-SELECT COUNT(s.id) AS `count` FROM student AS s
-GROUP BY s.class_number
-ORDER BY `count` DESC;
+SELECT full_name FROM student
+WHERE id IN (
+	SELECT student_id 
+    FROM exam_grades
+    WHERE grade < 02);
 
+#########################################################################################
+#########################################################################################
+-- 5. What gender has got more email addresses?
+#########################################################################################    
+
+SELECT CASE 
+  WHEN COUNT(CASE WHEN gender='M' THEN 1 END) > 
+	   COUNT(CASE WHEN gender="F" THEN 1 END) 
+  THEN "Boys" ELSE "Girls" END AS `Who are more likely to have an email:`
+  FROM student
+WHERE email IS NOT NULL;
