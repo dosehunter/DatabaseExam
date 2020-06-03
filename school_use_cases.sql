@@ -41,9 +41,9 @@ SELECT GET_FULL_CPR(e.dob, e.cpr)
 -- 4. Retrieve the names of all the students who did not pass their exam.
 #########################################################################################
 
-SELECT full_name FROM student
-WHERE id IN (
-	SELECT student_id 
+SELECT full_name AS `Students that failed an exam`
+FROM student
+WHERE id IN (SELECT student_id 
     FROM exam_grades
     WHERE grade < 02);
 
